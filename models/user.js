@@ -43,6 +43,22 @@ module.exports = (dbPool) => {
 
     login: (user, callback) => {
       // TODO: Add logic here
+      console.log(user);
+      const queryString = 'SELECT password from users WHERE name=$username';
+      const username = user.name;
+      dbPool.query(queryString, values, (error, queryResult) => {
+        if (error) {
+          console.error('unable to match password', error.stack)
+        }
+        console.log(queryResult.rows[0].password);
+        bcrypt.compare(user.password, queryResult.rows[0].password, (error, response) => {
+          if (response) {
+            callback(true);
+          } else {
+            callback(false);
+          }
+        });
+      });
     }
   };
 };

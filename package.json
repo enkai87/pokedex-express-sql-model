@@ -11,5 +11,7 @@
     "jsonfile": "^4.0.0",
     "method-override": "^2.3.10",
     "pg": "^7.4.1"
-  }
+  },
+  "repository": "https://github.com/enkai87/pokedex-express-sql-model.git",
+  "author": "enkai87 <tanenkai@firebelly.com.sg>"
 }
